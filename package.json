@@ -1,6 +1,6 @@
 {
   "name": "egg-enhance-session",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A better session instead of egg-session",
   "eggPlugin": {
     "name": "enhanceSession",
