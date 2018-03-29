@@ -47,6 +47,7 @@ exports.enhanceSession = {
 exports.enhanceSession = {
 };
 ```
+And support all [egg-cookies](https://github.com/eggjs/egg-cookies/blob/master/README.zh-CN.md) params.
 
 see [config/config.default.js](config/config.default.js) for more detail.
 

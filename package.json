@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "A better session instead of egg-session",
   "eggPlugin": {
-    "name": "enhanceSession"
+    "name": "enhanceSession",
+    "dependencies": [
+      "redis"
+    ]
   },
   "keywords": [
     "egg",
     "eggPlugin",
     "egg-plugin"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "random-of": "^0.0.1"
+  },
   "devDependencies": {
     "autod": "^3.0.0",
     "autod-egg": "^1.0.0",

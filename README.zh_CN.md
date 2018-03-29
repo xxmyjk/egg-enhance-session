@@ -63,6 +63,8 @@ exports.enhanceSession = {
 
 请到 [config/config.default.js](config/config.default.js) 查看详细配置项说明。
 
+And support all [egg-cookies](https://github.com/eggjs/egg-cookies/blob/master/README.zh-CN.md) params.
+
 ## 单元测试
 
 <!-- 描述如何在单元测试中使用此插件，例如 schedule 如何触发。无则省略。-->
