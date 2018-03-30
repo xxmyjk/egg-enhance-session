@@ -42,7 +42,8 @@
   "files": [
     "app.js",
     "agent.js",
-    "config"
+    "config",
+    "app"
   ],
   "ci": {
     "version": "8, 9"
