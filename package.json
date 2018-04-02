@@ -1,6 +1,6 @@
 {
   "name": "egg-enhance-session",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A better session instead of egg-session",
   "eggPlugin": {
     "name": "enhanceSession",
@@ -50,12 +50,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eggjs/egg-enhance-session.git"
+    "url": "git+https://github.com/xxmyjk/egg-enhance-session.git"
   },
   "bugs": {
-    "url": "https://github.com/eggjs/egg/issues"
+    "url": "https://github.com/xxmyjk/egg-enhance-session/issues"
   },
-  "homepage": "https://github.com/eggjs/egg-enhance-session#readme",
+  "homepage": "https://github.com/xxmyjk/egg-enhance-session#readme",
   "author": "Jin Yi <github@xxmyjk>",
   "license": "MIT"
 }
