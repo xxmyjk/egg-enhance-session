@@ -26,6 +26,10 @@ module.exports = {
 
             async set(key, value, maxAge = sessionConf.maxAge) {
                 // TODO: check expire time
+
+                // redis only support string
+                value = value && value.toString() || '';
+
                 await app.redis.hset(this.id, key, value);
                 await app.redis.pexpire(this.id, maxAge);
 
@@ -43,9 +47,10 @@ module.exports = {
                 await this.sync();
                 for (let key in args) {
                     sets.push(key);
-                    sets.push(args[key] || null);
+                    sets.push(args[key] || '');
 
-                    this[key] = args[key] || null;
+                    // redis only support string
+                    this[key] = args[key] && args[key].toString() || '';
                 }
 
                 return await app.redis.hmset(this.id, sets);
