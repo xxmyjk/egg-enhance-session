@@ -105,6 +105,8 @@ module.exports = (config, app) => {
         // TODO: 后续考虑延迟保活时间
         await ctx.session.save();
 
+        ctx.app.logger.debug(`[middle:enhanceSession] debug session info, %j`, ctx.session);
+
         await next();
     };
 };

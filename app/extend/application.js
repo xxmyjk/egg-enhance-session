@@ -18,14 +18,37 @@ module.exports = {
                 this[_ctxSymbol] = ctx;
             }
 
+            async sync() {
+                let info = await this.get();
+
+                Object.assign(this, info);
+            }
+
             async set(key, value, maxAge = sessionConf.maxAge) {
                 // TODO: check expire time
                 await app.redis.hset(this.id, key, value);
                 await app.redis.pexpire(this.id, maxAge);
 
+                await this.sync();
                 this[key] = value;
 
                 return;
+            }
+
+
+            async setInfo(args) {
+                // hmset
+                let sets = [];
+
+                await this.sync();
+                for (let key in args) {
+                    sets.push(key);
+                    sets.push(args[key] || null);
+
+                    this[key] = args[key] || null;
+                }
+
+                return await app.redis.hmset(this.id, sets);
             }
 
             async get(key) {
@@ -33,7 +56,6 @@ module.exports = {
 
                 // 这里使用中间变量转换三种兼容方式的返回异构
                 let info = {};
-
 
                 if (!key) {
                     // 没有传入key, 返回session完整信息
@@ -55,20 +77,6 @@ module.exports = {
                 }
 
                 return info;
-            }
-
-            async setInfo(args) {
-                // hmset
-                let sets = [];
-
-                for (let key in args) {
-                    sets.push(key);
-                    sets.push(args[key] || null);
-
-                    this[key] = args[key] || null;
-                }
-
-                return await app.redis.hmset(this.id, sets);
             }
 
             async destroy() {
